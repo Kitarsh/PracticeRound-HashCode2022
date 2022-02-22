@@ -9,7 +9,7 @@ internal class Samples
         Console.WriteLine("Read from file !");
         Console.Write(fileContent);
 
-        var lines = fileContent.Split("\n");
+        var lines = fileContent.Split("\r\n");
         int nbOfClient = Int32.Parse(lines[0]);
         Console.WriteLine(nbOfClient);
 

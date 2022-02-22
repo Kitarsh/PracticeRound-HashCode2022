@@ -23,8 +23,29 @@ public class Client
         this.LikedIngredients = likedIngredients;
     }
     
-    public string[] GetDislikedIngredients() { return DislikedIngredients; }
+    public string[] GetDislikedIngredients() { 
+        return DislikedIngredients;
+    }
 
-    public string[] GetLikedIngredients() { return LikedIngredients; }
+    internal bool IsPleased(string[] ingredients)
+    {
+        if(ingredients.Any(i => DislikedIngredients.Contains(i)))
+        {
+            // One disliked ingredient is in pizza.
+            return false;
+        }
+
+        if(LikedIngredients.Any(li => !ingredients.Contains(li)))
+        {
+            // One liked ingredient is not in pizza.
+            return false;
+        }
+
+        return true;
+    }
+
+    public string[] GetLikedIngredients() {
+        return LikedIngredients;
+    }
 
 }
