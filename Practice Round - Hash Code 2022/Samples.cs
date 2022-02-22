@@ -25,8 +25,12 @@ internal class Samples
         return clients;
     }
 
-    internal static void WriteOutput(object output)
+    internal static void WriteOutput(string[] ingredients)
     {
-        throw new NotImplementedException();
+        var line = $"{ingredients.Length} {string.Join(" ", ingredients)}";
+
+        var lines = new string[] { line };
+
+        File.WriteAllLinesAsync("Output.txt", lines);
     }
 }
