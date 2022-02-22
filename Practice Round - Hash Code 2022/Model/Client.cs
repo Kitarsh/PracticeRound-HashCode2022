@@ -22,4 +22,9 @@ public class Client
     {
         this.LikedIngredients = likedIngredients;
     }
+    
+    public string[] GetDislikedIngredients() { return DislikedIngredients; }
+
+    public string[] GetLikedIngredients() { return LikedIngredients; }
+
 }
