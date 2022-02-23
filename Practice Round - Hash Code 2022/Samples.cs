@@ -1,9 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 internal class Samples
 {
-    internal static List<Client> GetInputs()
+    internal static List<Client> GetInputs(string fileName)
     {
-        var fileName = "./../../../Inputs/a_an_example.in.txt";
         string fileContent = File.ReadAllText(fileName);
 
         Console.WriteLine("Read from file !");

@@ -16,11 +16,16 @@
 
         }
 
+        Console.WriteLine("Ingredients :");
+        foreach(var i in ingredients) 
+        {
+            Console.WriteLine($"{i.Name} : {i.Ratio}");
+        }
+
         var ingToUse = ingredients.OrderByDescending(i => i.Ratio)
                                   .Where(i => i.Ratio >= 1)
                                   .ToList();
 
-        clientPleasedPercentage = 0.25;
         return ingToUse.Select(i => i.Name).ToArray();
     }
 
@@ -56,7 +61,7 @@
                 {
                     ing.NbOfDislike++;
                 }
-                ing.Ratio = (ing.NbOfLike / (ing.NbOfLike + ing.NbOfDislike)) / ingredients.Count;
+                ing.Ratio = (ing.NbOfLike / (ing.NbOfLike + ing.NbOfDislike)); // / ingredients.Count;
             }
         }
     }
