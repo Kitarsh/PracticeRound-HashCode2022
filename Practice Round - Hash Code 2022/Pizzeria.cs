@@ -6,14 +6,16 @@
 
     private static List<Client> clients = new List<Client>();
 
-    public static string[] GetBestMenu(List<Client> inputs)
+    private static double acceptedRatio = 1;
+
+    public static string[] GetBestMenu(List<Client> inputs, double newAcceptedRatio = 1)
     {
+        acceptedRatio = newAcceptedRatio;
         clients = inputs;
         foreach (var client in inputs)
         {
             addIngredient(client.GetLikedIngredients(), true);
             addIngredient(client.GetDislikedIngredients(), false);
-
         }
 
         Console.WriteLine("Ingredients :");
@@ -23,7 +25,7 @@
         }
 
         var ingToUse = ingredients.OrderByDescending(i => i.Ratio)
-                                  .Where(i => i.Ratio >= 1)
+                                  .Where(i => i.Ratio >= acceptedRatio)
                                   .ToList();
 
         return ingToUse.Select(i => i.Name).ToArray();
