@@ -35,13 +35,13 @@ public class Client
             return false;
         }
 
-        if(LikedIngredients.Any(li => !ingredients.Contains(li)))
+        if(LikedIngredients.All(li => ingredients.Contains(li)))
         {
-            // One liked ingredient is not in pizza.
-            return false;
+            // All liked ingredient are in pizza.
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public string[] GetLikedIngredients() {

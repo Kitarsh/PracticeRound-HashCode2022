@@ -16,8 +16,8 @@ internal class Samples
 
         for (var i = 1; i <= nbOfClient; i++)
         {
-            Console.WriteLine($"Client {i} likes : {lines[2 * i - 1]}");
-            Console.WriteLine($"Client {i} dislikes : {lines[2 * i]}");
+            //Console.WriteLine($"Client {i} likes : {lines[2 * i - 1]}");
+            //Console.WriteLine($"Client {i} dislikes : {lines[2 * i]}");
 
             clients.Add(new Client(lines[2 * i - 1], lines[2 * i]));
         }
@@ -30,6 +30,9 @@ internal class Samples
 
         var lines = new string[] { line };
 
-        File.WriteAllLinesAsync("Output.txt", lines);
+        using (StreamWriter outfile = new StreamWriter("Output.txt"))
+        {
+            outfile.WriteLine(line);
+        }
     }
 }

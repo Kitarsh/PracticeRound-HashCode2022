@@ -9,4 +9,6 @@ public class Ingredient
     public double Ratio { get; set; }
 
     public string Name { get; set; }
+
+    public List<int> Composition { get; set; }
 }
